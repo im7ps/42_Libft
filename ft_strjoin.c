@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoinERROR.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 18:04:53 by sgerace           #+#    #+#             */
-/*   Updated: 2022/03/27 20:03:51 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/03/31 14:30:20 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	stack = (char *) malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!stack)
 		return (NULL);
-	while (*s1 != '\0')  //DA CAPIRE PERCHE' while (s1) {...} non worka
+	while (*s1 != '\0')
 		stack[i++] = *s1++;
 	while (*s2 != '\0')
 		stack[i++] = *s2++;
