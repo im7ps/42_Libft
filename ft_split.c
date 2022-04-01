@@ -6,7 +6,7 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:32:56 by sgerace           #+#    #+#             */
-/*   Updated: 2022/03/31 18:13:16 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/01 18:12:01 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ char	**fill_matrix(char const *s, char c, char **matrix, int len)
 		}
 		i++;
 	}
+	matrix[j] = NULL;
 	return (matrix);
 }
 
