@@ -6,9 +6,11 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 18:15:46 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/01 18:19:31 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/01 18:59:01 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {

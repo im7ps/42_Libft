@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/26 15:21:05 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/04 20:09:46 by sgerace          ###   ########.fr       */
+/*   Created: 2022/04/03 17:57:16 by sgerace           #+#    #+#             */
+/*   Updated: 2022/04/04 18:11:27 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	ch;
+	t_list	*f_list;
+	t_list	*current_node;
 
-	ch = c;
-	while (*s != '\0')
+	if (lst == NULL)
+		return (lst);
+	f_list = NULL;
+	while (lst != NULL)
 	{
-		if (*s == ch)
-			return ((char *) s);
-		s++;
+		current_node = ft_lstnew((*f)(lst->content));
+		if (current_node == NULL)
+		{
+			ft_lstclear(&f_list, (*del));
+			return (NULL);
+		}
+		ft_lstadd_back(&f_list, current_node);
+		lst = lst->next;
 	}
-	if (*s == ch)
-		return ((char *)s);
-	return (NULL);
+	return (f_list);
 }

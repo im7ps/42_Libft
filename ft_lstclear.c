@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/26 15:21:05 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/04 20:09:46 by sgerace          ###   ########.fr       */
+/*   Created: 2022/04/03 16:41:37 by sgerace           #+#    #+#             */
+/*   Updated: 2022/04/03 17:44:53 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	ch;
+	t_list	*prev;
 
-	ch = c;
-	while (*s != '\0')
+	if (*lst == NULL)
+		return ;
+	else
 	{
-		if (*s == ch)
-			return ((char *) s);
-		s++;
+		while (*lst != NULL)
+		{
+			prev = *lst;
+			*lst = (*lst)->next;
+			del(prev->content);
+			free(prev);
+		}
 	}
-	if (*s == ch)
-		return ((char *)s);
-	return (NULL);
 }

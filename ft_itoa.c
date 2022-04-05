@@ -6,7 +6,7 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 17:46:20 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/01 16:15:35 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/04 19:04:21 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,11 @@ char	*ft_itoa(int n)
 		str_num[0] = '-';
 		if (n == -2147483648)
 		{
-			str_num[1] = 2;
+			str_num[1] = '2';
 			n = 147483648;
 		}
-		n *= -1;
+		else
+			n *= -1;
 	}
 	return (converter(str_num, digits, len, n));
 }

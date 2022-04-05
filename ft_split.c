@@ -5,83 +5,75 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 15:32:56 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/01 18:12:01 by sgerace          ###   ########.fr       */
+/*   Created: 2022/04/05 16:34:30 by sgerace           #+#    #+#             */
+/*   Updated: 2022/04/05 22:20:12 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int	count_w(char const *s, char c)
+char	**fill_m(const char *s, char c, char	**matrix, int num_w)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	i = 0;
+	j = 0;
+	len = 0;
+	while (j < num_w)
+	{
+		while (s[i] == c)
+				i++;
+		while (s[i + len] != c && s[i + len] != '\0')
+			len++;
+		if (len != 0)
+		{
+			matrix[j] = ft_substr(s, i, len);
+			j++;
+		}
+		i += len;
+		len = 0;
+	}
+	return (matrix);
+}
+
+int	count_w(char *str, char c)
 {
 	int	num;
-	int	index;
+	int	toggle;
 
 	num = 0;
-	index = 0;
-	while (*s)
+	toggle = 0;
+	while (*str)
 	{
-		if (ft_strchr(s, c) && index == 0)
+		if (*str != c && toggle == 0 && *str != '\0')
 		{
-			index = 1;
+			toggle = 1;
 			num++;
 		}
-		else
-			index = 0;
-		s++;
+		else if (*str == c)
+			toggle = 0;
+		str++;
 	}
 	return (num);
 }
 
-char	*actually_fill_matrix(char const *s, int start, int finish)
-{
-	char	*word;
-	int		i;
-
-	i = 0;
-	word = (char *) malloc(sizeof(char *) * (finish - start + 1));
-	if (!word)
-		return (NULL);
-	word[finish - start + 1] = '\0';
-	while (start < finish)
-		word[i++] = s[start++];
-	return (word);
-}
-
-char	**fill_matrix(char const *s, char c, char **matrix, int len)
-{
-	int	i;
-	int	j;
-	int	index;
-
-	i = 0;
-	j = 0;
-	index = -1;
-	while (i < len)
-	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || i == len) && index >= 0)
-		{
-			matrix[j++] = actually_fill_matrix(s, index, i);
-			index = -1;
-		}
-		i++;
-	}
-	matrix[j] = NULL;
-	return (matrix);
-}
-
 char	**ft_split(char const *s, char c)
 {
-	int		len;
+	int		num_w;
 	char	**matrix;
+	int		str_len;
 
 	if (!s)
 		return (NULL);
-	len = ft_strlen(s);
-	matrix = (char **) malloc(sizeof(char *) * (count_w(s, c) + 1));
+	str_len = ft_strlen(s);
+	num_w = count_w((char *)s, c);
+	matrix = (char **) malloc(sizeof(char *) * (num_w + 1));
 	if (!matrix)
 		return (NULL);
-	return (fill_matrix(s, c, matrix, len));
+	matrix[num_w] = NULL;
+	matrix = fill_m(s, c, matrix, num_w);
+	return (matrix);
 }

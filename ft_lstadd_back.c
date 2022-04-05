@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/26 15:21:05 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/04 20:09:46 by sgerace          ###   ########.fr       */
+/*   Created: 2022/04/03 15:22:22 by sgerace           #+#    #+#             */
+/*   Updated: 2022/04/03 17:44:47 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	ch;
+	t_list	*tmp_l;
 
-	ch = c;
-	while (*s != '\0')
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		if (*s == ch)
-			return ((char *) s);
-		s++;
+		tmp_l = ft_lstlast(*lst);
+		tmp_l->next = new;
 	}
-	if (*s == ch)
-		return ((char *)s);
-	return (NULL);
 }

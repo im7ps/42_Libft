@@ -6,13 +6,16 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 18:19:58 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/01 18:20:06 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/01 19:28:42 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
+	int		i;
+	char	nl;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -20,5 +23,6 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
-	write(fd, '\n', 1);
+	nl = '\n';
+	write(fd, &nl, 1);
 }
