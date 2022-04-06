@@ -1,14 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinERROR.c                                  :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 18:04:53 by sgerace           #+#    #+#             */
-/*   Updated: 2022/03/31 14:30:20 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/06 20:17:06 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//str = strjoin(C) constructs str by linking the elements of C with a space between consecutive elements.
+// C can be a cell array of character vectors or a string array.
+// source: https://fr.mathworks.com/help/matlab/ref/strjoin.html#:~:text=str%20%3D%20strjoin(%20C%20)%20constructs,with%20the%20elements%20in%20delimiter%20.
 
 #include "libft.h"
 
@@ -31,6 +35,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		stack[i++] = *s1++;
 	while (*s2 != '\0')
 		stack[i++] = *s2++;
-	stack[i] = '\0';
+	stack[i] = '\0';			// il null character va messo solo alla fine, fra una stringa e l'altra non ci va
 	return (stack);
 }

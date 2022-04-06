@@ -6,9 +6,12 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:48:40 by sgerace           #+#    #+#             */
-/*   Updated: 2022/03/27 12:44:56 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/06 20:36:24 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//The C library function char *strrchr(const char *str, int c) searches for the last occurrence of the character c (an unsigned char) in the string pointed to, by the argument str.
+//source: https://www.tutorialspoint.com/c_standard_library/c_function_strrchr.htm
 
 #include "libft.h"
 

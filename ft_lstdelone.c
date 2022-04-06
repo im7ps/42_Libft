@@ -6,7 +6,7 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 16:30:22 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/03 19:10:56 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/06 19:14:50 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	tmp = lst;
 	if (lst != NULL)
 	{
-		lst = tmp->next;
-		del(tmp->content);
-		free(tmp);
+		lst = tmp->next;	//andiamo al prossimo nodo
+		del(tmp->content);	//eliminiamo il contenuto del nodo precedente
+		free(tmp);			//SEMPRE FARE LA FREEEEEE
 	}
 }

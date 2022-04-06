@@ -6,9 +6,14 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 19:57:47 by sgerace           #+#    #+#             */
-/*   Updated: 2022/03/27 15:31:06 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/06 20:34:39 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// The strnstr() function locates the first occurrence of the	null-termi-nated string little in the string big,
+// where not more than len characters are searched.
+// Characters that appear after a `\0'	character are not searched.
+// source: https://www.freebsd.org/cgi/man.cgi?query=strnstr&sektion=3
 
 #include "libft.h"
 

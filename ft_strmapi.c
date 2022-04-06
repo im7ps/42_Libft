@@ -6,9 +6,15 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:36:33 by sgerace           #+#    #+#             */
-/*   Updated: 2022/03/31 19:09:42 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/06 20:32:24 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//Applies the function ’f’ to each character of the
+// string ’s’, and passing its index as first argument
+// to create a new string (with malloc(3)) resulting
+// from successive applications of ’f’.
+// source: 42libft subject 03/2022
 
 #include "libft.h"
 

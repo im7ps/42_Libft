@@ -6,9 +6,16 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 17:57:16 by sgerace           #+#    #+#             */
-/*   Updated: 2022/04/04 18:11:27 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/06 19:10:14 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Iterates the list ’lst’ and applies the function
+// ’f’ on the content of each node. Creates a new
+// list resulting of the successive applications of
+// the function ’f’. The ’del’ function is used to
+// delete the content of a node if needed.
+// source: 42libft subject 03/2022
 
 #include "libft.h"
 
@@ -22,10 +29,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	f_list = NULL;
 	while (lst != NULL)
 	{
-		current_node = ft_lstnew((*f)(lst->content));
+		current_node = ft_lstnew((*f)(lst->content));  //crea una nuova lista con i nodi della vecchia a cui e' stata applicata la funzione (f)
 		if (current_node == NULL)
 		{
-			ft_lstclear(&f_list, (*del));
+			ft_lstclear(&f_list, (*del));				//anche se il subject cita "the content of a node" questo script elimina tutta la nuova lista usando l'indirizzo di f_list, almeno credo, e ritorna NULL
 			return (NULL);
 		}
 		ft_lstadd_back(&f_list, current_node);

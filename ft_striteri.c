@@ -6,7 +6,7 @@
 /*   By: sgerace <sgerace@student.42roma.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 19:21:07 by sgerace           #+#    #+#             */
-/*   Updated: 2022/03/31 19:30:18 by sgerace          ###   ########.fr       */
+/*   Updated: 2022/04/06 20:14:32 by sgerace          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i] != '\0')
 	{
-		f(i, &s[i]);
+		f(i, &s[i]);		//gli passiamo l indirizzo per lavorare sulla vera stringa, non una copia! (in realta' il prototipo accetta un puntatore, s[i] sarebbe "solo" un valore)
 		i++;
 	}
 }
